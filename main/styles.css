@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: #f9f9f9;
+    background-color: #f4f4f6;
     display: flex;
     flex-direction: row;
     height: 100vh;
@@ -12,8 +12,8 @@ body {
 
 .nav-cont {
     height: 100%;
-    width: 280px;
-    padding: 8px;
+    width: 260px;
+    padding: 16px;
 }
 
 .nav-cont nav{
@@ -25,13 +25,12 @@ body {
 }
 
 .nav-logo {
-    background-color: white;
-    border-radius: 18px;
-    border: 1px solid rgb(219, 219, 219); 
-    box-shadow: 0 0 1.5px rgb(219, 219, 219);
-    height: 64px;
+    box-sizing: border-box;
+    background-color: rgb(166, 28, 28);
+    height: 40px;
     width: 100%;
     padding: 15px;
+    margin-bottom: 16px;
 }
 
 .nav-cont nav ul{
@@ -44,40 +43,38 @@ body {
     display: flex;
     flex-direction: row;
     padding: 0;
-    height: 46px;
+    height: 44px;
     align-items: center;
+    border-radius: 12px;
 }
 
 .nav-cont nav li:hover {
-    background-color: rgb(227, 227, 227); 
+    background-color: #e4e3e8; 
     cursor: pointer;
-    border-radius: 14px;
 }
 
 .nav-cont nav li i{
     height: 100%;
-    width: 26px;
+    width: 44px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
 }
 
 .nav-cont nav li i img{
-    height: 26px; 
-    width: 26px;
-    color: rgb(75, 75, 75); 
-    
+    height: 24px; 
+    width: 24px;
 }
 
 .nav-cont nav li a{
-    padding: 0 8px;
+    padding: 0;
+    padding-right: 12px;
     text-decoration: none; 
-    color: #6b6c6c; 
+    color: black; 
     flex: 1;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 17px;
+    font-size: .875rem;
 }
 
 .main-cont {
