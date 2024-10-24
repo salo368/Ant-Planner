@@ -12,7 +12,7 @@ body {
 
 .nav-cont {
     height: 100%;
-    width: 260px;
+    width: 230px;
     padding: 16px;
 }
 
@@ -30,11 +30,21 @@ body {
     height: 40px;
     width: 100%;
     padding: 15px;
-    margin-bottom: 16px;
+    margin-bottom: 25px;
+}
+
+.menu-h6{
+    padding: 0;
+    text-decoration: none; 
+    color: #86858d; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: .9rem;
+    margin: 0;
 }
 
 .nav-cont nav ul{
-    padding: 10px 0;
+    padding: 4px 0;
     margin: 0;
     list-style-type: none;
 }
@@ -43,7 +53,7 @@ body {
     display: flex;
     flex-direction: row;
     padding: 0;
-    height: 44px;
+    height: 40px;
     align-items: center;
     border-radius: 12px;
 }
