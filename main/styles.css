@@ -90,9 +90,7 @@ body {
 .main-cont {
     height: 100%;
     flex: 1;
-    padding: 8px 8px 8px 2px;
-    display: flex;
-    flex-direction: column;
+    padding: 16px 16px 16px 0;
 }
 
 .main-sub-cont {
@@ -102,17 +100,103 @@ body {
     box-shadow: 0 0 1.5px rgb(219, 219, 219);
     background-color: white;
     border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-
 .main-cont header {
-    height: 50px;
-    
+    height: 120px;
+    background-color: white;
+    padding: 24px 20px;
+}
+
+.main-cont header hr{
+    border: 1px solid #d1d1d1;
+}
+
+#main-little-title {
+    /* background-color: aqua; */
+    margin: 0;
+    color: rgb(92, 92, 92); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+#main-title {
+    /* background-color: aqua; */
+    margin: 0;
+    margin-top: 16px;
+    color: rgb(45, 45, 45); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
 }
 
 .main-cont main {
-    margin-top: 15px;
+    /* background-color: brown; */
+    padding: 8px 20px 24px 20px;
     height: 50px;
     flex: 1;
+    display: flex;
+    flex-direction: row;
 }
 
+.main-cont main .main-col1{
+    /* background-color: #cc1111; */
+    height: 100%;
+    flex: 8;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-cont main .main-col2{
+    /* background-color: #11ccb3; */
+    height: 100%;
+    /* width: 460px; */
+    width: 25.3vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-cont main .main-meetings{
+    background-color: #f4f4f4;
+    flex: 1;
+    width: calc(100% - 10px);
+    margin: 0 10px 10px 0;
+    border-radius: 2vh;
+    border: 1px solid rgb(195, 192, 192); 
+    box-shadow: 0 0 -4px rgb(195, 192, 192);
+}
+
+.main-cont main .main-kanban{
+    background-color: #f4f4f4;
+    flex: 2;
+    width: calc(100% - 10px);
+    margin: 10px 10px 0 0;
+    border-radius: 2vh;
+    border: 1px solid rgb(195, 192, 192); 
+    box-shadow: 0 0 -4px rgb(195, 192, 192);
+}
+
+.main-cont main .main-calendar{
+    background-color: #f4f4f4;
+    /* height: 300px; */
+    height: 16.5vw;
+    width: calc(100% - 10px);
+    margin: 0 0 10px 10px;
+    border-radius: 2vh;
+    border: 1px solid rgb(195, 192, 192); 
+    box-shadow: 0 0 -4px rgb(195, 192, 192);
+}
+
+.main-cont main .main-tasks{
+    background-color: #f4f4f4;
+    flex: 1;
+    width: calc(100% - 10px);
+    margin: 10px 0 0 10px;
+    border-radius: 2vh;
+    border: 1px solid rgb(195, 192, 192); 
+    box-shadow: 0 0 -4px rgb(195, 192, 192);
+}
