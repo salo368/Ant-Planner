@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" type="image/svg+xml" href="icon.svg">
         <title>Ant Planner</title>
@@ -50,23 +50,124 @@
                 </header>
                 <main>
                     <div class="main-col1">
-                        <div class="main-meetings">
-
+                        <div class="main-meetings widget">
+                            <div class="widget-header">
+                                <h2>Reuniones</h2>
+                            </div>
+                            <div class="widget-body">
+                                
+                            </div>
                         </div>
-                        <div class="main-kanban">
-
+                        <div class="main-kanban widget">
+                            <div class="widget-header">
+                                <h2>Kanban</h2>
+                            </div>
+                            <div class="widget-body">
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="main-col2">
-                        <div class="main-calendar">
-
+                        <div class="main-calendar widget">
+                            <div class="widget-header">
+                                <h2>Calendario</h2>
+                            </div>
+                            <div class="widget-body widget-calendar">
+                                <div class="widget-calendar-info">
+                                    <h3>Octubre, 2024</h3>
+                                    <div class="widget-calendar-info-controls">
+                                        <button id="widget-calendar-button-left" class="widget-calendar-button">
+                                            <img src="arrowPrev.svg" alt="Prev"/>
+                                        </button>
+                                        <button id="widget-calendar-button-right" class="widget-calendar-button">
+                                            <img src="arrowNext.svg" alt="Next"/>
+                                        </button>
+                                    </div>
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="widget-calendar-title">Dom</th>
+                                            <th class="widget-calendar-title">Lun</th>
+                                            <th class="widget-calendar-title">Mar</th>
+                                            <th class="widget-calendar-title">Mie</th>
+                                            <th class="widget-calendar-title">Jue</th>
+                                            <th class="widget-calendar-title">Vie</th>
+                                            <th class="widget-calendar-title">Sáb</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th class="widget-calendar-day">1</th>
+                                            <th class="widget-calendar-day">2</th>
+                                            <th class="widget-calendar-day">3</th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                        </tr>
+                                        <tr>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                        </tr>
+                                        <tr>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                        </tr>
+                                        <tr>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                        </tr>
+                                        <tr>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                        </tr>
+                                        <tr>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                            <th class="widget-calendar-day"></th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="main-tasks">
-
+                        <div class="main-tasks widget">
+                            <div class="widget-header">
+                                <h2>Lista de tareas</h2>
+                            </div>
+                            <div class="widget-body">
+                                
+                            </div>
                         </div>
                     </div>
                 </main>
             </div>
         </div>
     </body>
+
+    <script src="main.js"></script>
 </html>

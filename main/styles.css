@@ -98,11 +98,13 @@ body {
     padding: 0;
     padding-right: 12px;
     text-decoration: none; 
-    color: black; 
     flex: 1;
+    color: black; 
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: .875rem;
+    font-size: .9rem;
+    display: inline-flex;
+    align-items: center;
 }
 
 .main-cont {
@@ -126,7 +128,7 @@ body {
 .main-cont header {
     height: 120px;
     background-color: white;
-    padding: 24px 20px;
+    padding: 26px 24px 0 26px;
 }
 
 .main-cont header hr{
@@ -154,7 +156,7 @@ body {
 
 .main-cont main {
     /* background-color: brown; */
-    padding: 8px 20px 24px 20px;
+    padding: 8px 24px 26px 24px;
     height: 50px;
     flex: 1;
     display: flex;
@@ -179,42 +181,183 @@ body {
 }
 
 .main-cont main .main-meetings{
-    background-color: #f4f4f4;
     flex: 1;
     width: calc(100% - 10px);
     margin: 0 10px 10px 0;
-    border-radius: 2vh;
-    border: 1px solid rgb(195, 192, 192); 
-    box-shadow: 0 0 -4px rgb(195, 192, 192);
 }
 
 .main-cont main .main-kanban{
-    background-color: #f4f4f4;
     flex: 2;
     width: calc(100% - 10px);
     margin: 10px 10px 0 0;
-    border-radius: 2vh;
-    border: 1px solid rgb(195, 192, 192); 
-    box-shadow: 0 0 -4px rgb(195, 192, 192);
 }
 
 .main-cont main .main-calendar{
-    background-color: #f4f4f4;
-    /* height: 300px; */
-    height: 16.5vw;
+    height: 18vw;
     width: calc(100% - 10px);
     margin: 0 0 10px 10px;
-    border-radius: 2vh;
-    border: 1px solid rgb(195, 192, 192); 
-    box-shadow: 0 0 -4px rgb(195, 192, 192);
 }
 
 .main-cont main .main-tasks{
-    background-color: #f4f4f4;
     flex: 1;
     width: calc(100% - 10px);
     margin: 10px 0 0 10px;
-    border-radius: 2vh;
-    border: 1px solid rgb(195, 192, 192); 
-    box-shadow: 0 0 -4px rgb(195, 192, 192);
 }
+
+.main-cont main .widget{
+    border: 1px solid rgb(210, 210, 210); 
+    box-shadow: 0 0 2px rgb(210, 210, 210);
+    background-color: white;
+    border-radius: 2vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.widget-header{
+    width: 100%;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    padding: 14px 14px 0 14px;
+    /* background-color: brown; */
+}
+
+.widget-header h2{
+    height: 100%;
+    width: 100%;
+    color: rgb(51, 51, 51); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.9vh;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+}
+
+.widget-body{
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 14px 14px 14px;
+    /* background-color: aquamarine; */
+    flex: 1;
+}
+
+.widget-calendar{
+    /* background-color: brown; */
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-calendar-info{
+    display: flex;
+    flex-direction: row;
+    /* background-color: aquamarine; */
+    width: 100%;
+    height: 30px;
+}
+
+.widget-calendar-info h3{
+    flex: 1;
+    /* background-color: brown; */
+    margin: 0;
+    color: rgb(51, 51, 51); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.9vh;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 4px;
+}
+
+.widget-calendar-info-controls{
+    flex: 1;
+    /* background-color: rgb(91, 42, 165); */
+    margin: 0;
+    text-align: right;
+    margin-right: 4px;
+}
+
+.widget-calendar-button{
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    border: 1px solid rgb(210, 210, 210); 
+    box-shadow: 0 0 1px rgb(210, 210, 210);
+    background-color: #ffffff;
+    padding: 0;
+    cursor: pointer;
+}
+
+.widget-calendar-button:hover{
+    background-color: #e4e3e8; 
+}
+
+#widget-calendar-button-left{
+    margin-right: 4px;
+}
+
+#widget-calendar-button-left img{
+    height: 22px;
+    width: 22px;
+}
+
+#widget-calendar-button-right img{
+    height: 22px;
+    width: 22px;
+}
+
+.widget-calendar table{
+    /* background-color: rgb(42, 165, 87); */
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-calendar table thead tr{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.widget-calendar table tbody{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.widget-calendar table tbody tr{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 2px;
+}
+
+.widget-calendar-day{
+    flex: 1;
+    border: 1px solid rgb(210, 210, 210); 
+    box-shadow: 0 0 1px rgb(210, 210, 210);
+    /* background-color: white; */
+    margin: 0 2px;
+    border-radius: 0.4vw;
+    color: rgb(124, 124, 124); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 2vh;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.widget-calendar-title{
+    color: rgb(51, 51, 51); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.8vh;
+    margin: 0;
+    /* background-color: aqua; */
+    flex: 1;
+}
+
