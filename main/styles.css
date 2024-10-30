@@ -1,8 +1,8 @@
-* {
+*{
     box-sizing: border-box;
 }
 
-body {
+body{
     background-color: #f4f4f6;
     display: flex;
     flex-direction: row;
@@ -23,13 +23,13 @@ body {
     width: 100%;
 }
 
-.nav-logo {
+.nav-logo{
     box-sizing: border-box;
     width: 100%;
     margin-bottom: 20px;
 }
 
-.nav-logo a {
+.nav-logo a{
     text-decoration: none; 
     cursor: pointer;
     display: flex;            
@@ -54,7 +54,7 @@ body {
     list-style-type: none;
 }
 
-.nav-cont nav li {
+.nav-cont nav li{
     display: flex;
     flex-direction: row;
     padding: 0;
@@ -65,17 +65,17 @@ body {
     user-select: none;
 }
 
-.nav-cont nav li:hover {
+.nav-cont nav li:hover{
     background-color: #e4e3e8; 
 }
 
-.nav-cont nav li.nav-selected {
+.nav-cont nav li.nav-selected{
     background-color: #ffffff; 
     border: 1px solid rgb(219, 219, 219); 
     box-shadow: 0 0 1.5px rgb(219, 219, 219);
 }
 
-.nav-cont nav li.nav-selected:hover {
+.nav-cont nav li.nav-selected:hover{
     border: 1px solid rgb(219, 219, 219); 
     box-shadow: 0 0 1.5px rgb(219, 219, 219);
 }
@@ -107,13 +107,13 @@ body {
     align-items: center;
 }
 
-.main-cont {
+.main-cont{
     height: 100%;
     flex: 1;
     padding: 13px 13px 13px 0;
 }
 
-.main-sub-cont {
+.main-sub-cont{
     height: 100%;
     width: 100%;
     border: 1px solid rgb(219, 219, 219); 
@@ -125,17 +125,17 @@ body {
     flex-direction: column;
 }
 
-.main-cont header {
+.main-cont header{
     height: 120px;
     background-color: white;
-    padding: 26px 24px 0 26px;
+    padding: 2.5vh 2.7vh 0 2.7vh;
 }
 
 .main-cont header hr{
     border: 1px solid #d1d1d1;
 }
 
-#main-little-title {
+#main-little-title{
     /* background-color: aqua; */
     margin: 0;
     color: rgb(92, 92, 92); 
@@ -144,7 +144,7 @@ body {
     font-size: 1rem;
 }
 
-#main-title {
+#main-title{
     /* background-color: aqua; */
     margin: 0;
     margin-top: 16px;
@@ -154,10 +154,8 @@ body {
     font-size: 2rem;
 }
 
-.main-cont main {
-    /* background-color: brown; */
-    padding: 8px 24px 26px 24px;
-    height: 50px;
+.main-cont main{
+    padding: 0.82vh 2.5vh  2.7vh 2.5vh;
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -219,7 +217,7 @@ body {
     height: 40px;
     display: inline-flex;
     align-items: center;
-    padding: 14px 14px 0 14px;
+    padding: 1.5vh 1.5vh 0 1.5vh;
     /* background-color: brown; */
 }
 
@@ -239,7 +237,7 @@ body {
     width: 100%;
     display: inline-flex;
     align-items: center;
-    padding: 4px 14px 14px 14px;
+    padding: 0 1.5vh 1.5vh 1.5vh;
     /* background-color: aquamarine; */
     flex: 1;
 }
@@ -360,4 +358,6 @@ body {
     /* background-color: aqua; */
     flex: 1;
 }
+
+
 
