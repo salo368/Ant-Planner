@@ -30,7 +30,7 @@
                         <i><img src="gestor.svg" alt="Gestor" /></i>
                         <a>Gestor</a>
                     </li>
-                    <li  class="nav-selected">
+                    <li class="nav-selected">
                         <i><img src="calendar.svg" alt="Calendar" /></i>
                         <a>Calendario</a>
                     </li>
@@ -42,18 +42,37 @@
             </nav>
         </div>
         <div class="main-cont">
-            <div class="main-sub-cont">
+            <div class="main-sub-cont" id="mainSubCont">
                 <header>
                     <h1 id="main-little-title">Ant Planner / Calendar</h1>
                     <h1 id="main-title">Calendar</h1>
                     <hr>
                 </header>
                 <main>
-                   
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <h2 id="currentMonth"></h2>
+                            <div class="calendar-controls">
+                                <span id="dateRange"></span>
+                                <button id="todayBtn">Hoy</button>
+                                <div class="navigation">
+                                    <button id="prevWeek">&lt;</button>
+                                    <button id="nextWeek">&gt;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="calendar-scroll">
+                            <div class="calendar-grid">
+                                <div class="time-column" id="timeColumn"></div>
+                                <div class="days-container" id="daysContainer">
+                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>
+        <script src="calendar.js"></script>
     </body>
-
-    <script src="main.js"></script>
 </html>
