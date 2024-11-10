@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-<script>
-    function toggleButton(selected) {
-        const personalBtn = document.getElementById('personalBtn');
-        const grupalBtn = document.getElementById('grupalBtn');
-
-        if (selected === 'personal') {
-            personalBtn.classList.add('active');
-            grupalBtn.classList.remove('active');
-        } else {
-            grupalBtn.classList.add('active');
-            personalBtn.classList.remove('active');
-        }
-    }
-</script>
+<script src="toggleButton.js"></script>
+<script src="kanbanColum.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -77,37 +65,140 @@
             </header>
             <main>
                 <div class="widget-kanban">
-                    <div id="kanban-todo" class="kanban-list">
+                    <div id="kanban-todo" class="kanban-list" ondragover="permitirArrastre(event)"
+                        ondrop="soltar(event)">
                         <h2 class="kanban-title">Por Hacer</h2>
                         <div class="kanban-body">
+                            <div style="background-color: blue;">
+                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
+                                    ondragend="terminarArrastre(event)">
+                                    <div class="kanban-item-title">Crear un nuevo proyecto</div>
+                                    <div class="kanban-item-body">
+                                        <div class="bolita"></div>
+                                        <div>back-end</div>
+                                    </div>
+                                </div>
 
+                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
+                                    ondragend="terminarArrastre(event)">
+                                    <div class="kanban-item-title">borrar un nuevo proyecto</div>
+                                    <div class="kanban-item-body">
+                                        <div class="bolita"></div> back-end
+                                    </div>
+                                </div>
+
+                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
+                                    ondragend="terminarArrastre(event)">
+                                    <div class="kanban-item-title">soplar un nuevo proyecto</div>
+                                    <div class="kanban-item-body">
+                                        <div class="bolita"></div> back-end
+                                    </div>
+                                </div>
+
+                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
+                                    ondragend="terminarArrastre(event)">
+                                    <div class="kanban-item-title">borrar un nuevo proyecto</div>
+                                    <div class="kanban-item-body">
+                                        <div class="bolita"></div> back-end
+                                    </div>
+                                </div>
+
+                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
+                                    ondragend="terminarArrastre(event)">
+                                    <div class="kanban-item-title">borrar un nuevo proyecto</div>
+                                    <div class="kanban-item-body">
+                                        <div class="bolita"></div> back-end
+                                    </div>
+                                </div>
+
+                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
+                                    ondragend="terminarArrastre(event)">
+                                    <div class="kanban-item-title">borrar un nuevo proyecto</div>
+                                    <div class="kanban-item-body">
+                                        <div class="bolita"></div> back-end
+                                    </div>
+                                </div>
+
+                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
+                                    ondragend="terminarArrastre(event)">
+                                    <div class="kanban-item-title">borrar un nuevo proyecto</div>
+                                    <div class="kanban-item-body">
+                                        <div class="bolita"></div> back-end
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                    <div id="kanban-pause" class="kanban-list">
+
+                    <div id="kanban-pause" class="kanban-list" ondragover="permitirArrastre(event)"
+                        ondrop="soltar(event)">
                         <h2 class="kanban-title">En Pausa</h2>
                         <div class="kanban-body">
 
+                            <div>
+                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
+                                    ondragend="terminarArrastre(event)">
+                                    <div class="kanban-item-title">armar un nuevo proyecto</div>
+                                    <div class="kanban-item-body">
+                                        <div class="bolita"></div> back-end
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div id="kanban-process" class="kanban-list">
+
+                    <div id="kanban-process" class="kanban-list" ondragover="permitirArrastre(event)"
+                        ondrop="soltar(event)">
                         <h2 class="kanban-title">En Proceso</h2>
                         <div class="kanban-body">
 
+                            <div>
+                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
+                                    ondragend="terminarArrastre(event)">
+                                    <div class="kanban-item-title">Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit.
+                                        Necessitatibus maxime quas sunt cupiditate quo doloribus ab aliquam. Sapiente,
+                                        dignissimos reiciendis modi obcaecati blanditiis deleniti voluptates quod dolor,
+                                        error similique at.</div>
+                                    <div class="kanban-item-body">
+                                        <div class="bolita"></div> back-end
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div id="kanban-verify" class="kanban-list">
+
+                    <div id="kanban-verify" class="kanban-list" ondragover="permitirArrastre(event)"
+                        ondrop="soltar(event)">
                         <h2 class="kanban-title">Por Verificar</h2>
                         <div class="kanban-body">
 
-                        </div>
-                    </div>
-                    <div id="kanban-done" class="kanban-list">
-                        <h2 class="kanban-title">Completado</h2>
-                        <div class="kanban-body">
+                            <div>
+                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
+                                    ondragend="terminarArrastre(event)">
+                                    <div class="kanban-item-title">odiar un nuevo proyecto</div>
+                                    <div class="kanban-item-body">
+                                        <div class="bolita"></div> back-end
+                                    </div>
+
+                                </div>
+                            </div>
 
                         </div>
                     </div>
+
+                    <div id="kanban-done" class="kanban-list" ondragover="permitirArrastre(event)"
+                        ondrop="soltar(event)">
+                        <h2 class="kanban-title">Completado</h2>
+                        <div class="kanban-body">
+                            <div></div>
+                        </div>
+                    </div>
                 </div>
+            </main>
             </main>
         </div>
     </div>
