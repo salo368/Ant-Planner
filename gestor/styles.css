@@ -165,25 +165,16 @@ body{
     overflow: hidden;
 }
 
-.main-gestor{
+.main-gestor{ /* <------------------------------------------ GESTOR */
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 2;
     background-color: #f4f4f6;
     box-shadow: 0 0 2px #f4f4f6;
-    border-radius: 11px;
+    border-radius: 13px;
     overflow: hidden;
-    border: 1px solid rgb(219, 219, 219); 
-    padding: 0 0 0 0;
-}
-
-.main-gestor-info{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow: hidden;
-    padding: 0 0 0 0;
-    display: none;
+    border: 1px solid rgb(219, 219, 219);
+    padding: 0;
 }
 
 .main-gestor-header{
@@ -452,32 +443,32 @@ body{
 
 .main-task-name{
     /* background-color: aqua; */
-    flex: 5;
+    flex: 4.6;
 }
 
 .main-task-type{
     /* background-color: aqua; */
-    flex: 1;
+    flex: 0.8;
 }
 
 .main-task-state{
     /* background-color: aqua; */
-    flex: 1;
+    flex: 0.8;
 }
 
 .main-task-start{
     /* background-color: aqua; */
-    flex: 2;
+    flex: 1.5;
 }
 
 .main-task-end{
     /* background-color: aqua; */
-    flex: 2;
+    flex: 1.5;
 }
 
 .main-task-asignTo{
     /* background-color: aqua; */
-    flex: 2;
+    flex: 1.5;
 }
 
 .main-task-anim {
@@ -495,4 +486,189 @@ body{
 
 .main-category-body table tbody tr:hover .main-task-anim img{ 
     display: block;
+}
+
+#main-gestor-info{ /* <------------------------------------------ GESTOR INFO*/
+    display: flex;
+    flex-direction: column;
+    flex: 1.2;
+    overflow: hidden;
+    padding: 0;
+    margin-left: 1.3vh;
+    border: 1px solid rgb(219, 219, 219); 
+    box-shadow: 0 0 2px rgb(219, 219, 219);
+    background-color: white;
+    border-radius: 13px; 
+
+    /* display: none; */
+}
+
+.main-gestor-info-header{
+    /* border-bottom: 1px solid rgb(219, 219, 219);  */
+    /* box-shadow: 0 0 2px rgb(219, 219, 219); */
+    background-color: white;
+    border-radius: 11px;
+    width: 100%;
+    height: 46px;
+    padding: 0 1.4vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.main-gestor-info-header-title{
+    margin: 0;
+    color: rgb(61, 61, 61); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* background-color: aqua; */
+}
+
+.main-gestor-info-header-settings{
+    flex: 1;
+    /* background-color: brown; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.main-gestor-info-settings-button{
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    /* border: 1px solid rgb(210, 210, 210);  */
+    border: none;
+    /* box-shadow: 0 0 1px rgb(210, 210, 210); */
+    background-color: #ffffff;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-gestor-info-settings-button:hover{
+    background-color: #e4e3e8; 
+}
+
+#main-gestor-info-settings-button-close img{
+    height: 22px;
+    width: 22px;
+}
+
+.main-gestor-info-body{
+    /* background-color: rgb(180, 19, 19); */
+    width: 100%;
+    flex: 1;
+    padding: 0 2vh 2vh 2vh;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vh;
+}
+
+.main-gestor-info-body-task{
+    width: 100%;  
+    padding-bottom: 8px; 
+}
+
+.main-gestor-info-body-task h2{
+    /* background-color: rgb(19, 100, 180); */
+    width: 100%;
+    margin: 0;
+    color: rgb(61, 61, 61); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.main-gestor-info-body-category{
+
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px; 
+    z-index: 4;
+}
+
+.main-gestor-info-body-category h2{
+    color: #9b9a9e; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin: 0;
+    padding-bottom: 4px;
+}
+
+.main-gestor-info-body-state{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px; 
+    z-index: 3;
+}
+
+.main-gestor-info-body-state h2{
+    color: #9b9a9e; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin: 0;
+    padding-bottom: 4px;
+}
+
+.main-gestor-info-body-type{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px; 
+    z-index: 2;
+}
+
+.main-gestor-info-body-type h2{
+    color: #9b9a9e; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin: 0;
+    padding-bottom: 4px;
+}
+
+.main-gestor-info-body-info{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px; 
+    z-index: 1;
+}
+
+.main-gestor-info-body-info h2{
+    color: #9b9a9e; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin: 0;
+    padding-bottom: 4px;
+}
+
+.main-gestor-info-body-dates{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 8px; 
+}
+
+.main-gestor-info-body-date{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.main-gestor-info-body-date > h2{
+    color: #9b9a9e; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    margin: 0;
+    padding-bottom: 4px;
 }
