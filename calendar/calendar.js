@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentDate = new Date();
   let events = []; // Array para almacenar los eventos
+  let tempParticipants = []; // Array temporal para almacenar los participantes
 
   const popup = document.createElement("div");
   popup.classList.add("popup");
@@ -130,9 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showPopup(event) {
     activeEvent = event;
+    tempParticipants = [...event.participants]; // Inicializar la lista temporal de participantes
     const sortedParticipants = [
       event.host,
-      ...event.participants.filter((participant) => participant !== event.host),
+      ...tempParticipants.filter((participant) => participant !== event.host),
     ];
 
     // Convertir la fecha al formato local
@@ -149,41 +151,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Rellenar el contenido del popup
     popupContent.innerHTML = `
-    <button id="closePopup" class="close-popup" style="position: absolute; top: 15px; right: 15px; background: none; border: none; cursor: pointer;">
-      <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M19.207 6.207a1 1 0 0 0-1.414-1.414L12 10.586 6.207 4.793a1 1 0 0 0-1.414 1.414L10.586 12l-5.793 5.793a1 1 0 1 0 1.414 1.414L12 13.414l5.793 5.793a1 1 0 0 0 1.414-1.414L13.414 12l5.793-5.793z" fill="#303030"/>
-      </svg>
-    </button>
-    <h2><input type="text" id="eventTitle" value="${event.title}" /></h2>
-    <p><strong>Fecha:</strong> <input type="date" id="eventDate" value="${formattedDate}" /></p>
-    <p><strong>Hora de inicio:</strong> <input type="time" id="startTime" value="${
-      event.startTime
-    }" /></p>
-    <p><strong>Hora de fin:</strong> <input type="time" id="endTime" value="${
-      event.endTime
-    }" /></p>
-    <p><strong>Participantes:</strong></p>
-    <ul id="participantsList">
-      ${sortedParticipants
-        .map(
-          (participant) =>
-            `<li data-participant="${participant}" class="participant">${participant} ${
-              participant === event.host ? "⭐" : ""
-            } <span class="remove-participant" style="display:none; cursor: pointer; right: 50px; position:absolute;">
-              <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.207 6.207a1 1 0 0 0-1.414-1.414L12 10.586 6.207 4.793a1 1 0 0 0-1.414 1.414L10.586 12l-5.793 5.793a1 1 0 1 0 1.414 1.414L12 13.414l5.793 5.793a1 1 0 0 0 1.414-1.414L13.414 12l5.793-5.793z" fill="#303030"/>
-              </svg>
-            </span></li>`
-        )
-        .join("")}
-    </ul>
-    <div style="margin-top: 15px;">
-      <label for="audioUpload"><strong>Subir archivo de audio:</strong></label>
-      <input type="file" id="audioUpload" accept="audio/*" style="width: 100%; padding: 8px;">
-      <div id="audioError" style="color: red; display: none;">Por favor, sube un archivo de audio válido.</div>
-    </div>
-    <button id="saveChanges" style="margin-top: 20px;">Guardar cambios</button>
-  `;
+      <button id="closePopup" class="close-popup" style="position: absolute; top: 15px; right: 15px; background: none; border: none; cursor: pointer;">
+        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M19.207 6.207a1 1 0 0 0-1.414-1.414L12 10.586 6.207 4.793a1 1 0 0 0-1.414 1.414L10.586 12l-5.793 5.793a1 1 0 1 0 1.414 1.414L12 13.414l5.793 5.793a1 1 0 0 0 1.414-1.414L13.414 12l5.793-5.793z" fill="#303030"/>
+        </svg>
+      </button>
+      <h2><input type="text" id="eventTitle" value="${event.title}" /></h2>
+      <p><strong>Fecha:</strong> <input type="date" id="eventDate" value="${formattedDate}" /></p>
+      <p><strong>Hora de inicio:</strong> <input type="time" id="startTime" value="${
+        event.startTime
+      }" /></p>
+      <p><strong>Hora de fin:</strong> <input type="time" id="endTime" value="${
+        event.endTime
+      }" /></p>
+      <p style="display: flex; align-items: center; gap: 10px;">
+        <strong>Participantes:</strong>
+        <button id="addParticipantsBtn" style="padding: 5px 10px; cursor: pointer;">
+          + Añadir
+        </button>
+      </p>
+      <ul id="participantsList">
+        ${sortedParticipants
+          .map(
+            (participant) =>
+              `<li data-participant="${participant}" class="participant" style="position: relative;">${participant} ${
+                participant === event.host
+                  ? '<img id="HostStar" src="star.png" alt="Host" style="width: 16px; height: 16px;">'
+                  : ""
+              } ${
+                participant !== event.host
+                  ? `
+              <span class="remove-participant" style="display:none; cursor: pointer; position: absolute; right: 0;">
+                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M19.207 6.207a1 1 0 0 0-1.414-1.414L12 10.586 6.207 4.793a1 1 0 0 0-1.414 1.414L10.586 12l-5.793 5.793a1 1 0 1 0 1.414 1.414L12 13.414l5.793 5.793a1 1 0 0 0 1.414-1.414L13.414 12l5.793-5.793z" fill="#303030"/>
+                </svg>
+              </span>`
+                  : ""
+              }
+              </li>`
+          )
+          .join("")}
+      </ul>
+      <div style="margin-top: 15px;">
+        <label for="audioUpload"><strong>Subir archivo de audio:</strong></label>
+        <input type="file" id="audioUpload" accept="audio/*" style="width: 100%; padding: 8px;">
+        <div id="audioError" style="color: red; display: none;">Por favor, sube un archivo de audio válido.</div>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+        <button id="deleteEvent" style="background-color: red; color: white;">Eliminar</button>
+        <button id="saveChanges">Guardar</button>
+      </div>
+    `;
 
     // Mostrar el popup
     popup.style.display = "block";
@@ -192,6 +210,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Guardar los cambios
     document.getElementById("saveChanges").addEventListener("click", () => {
       saveEventChanges(event);
+    });
+
+    // Eliminar el evento
+    document.getElementById("deleteEvent").addEventListener("click", () => {
+      deleteEvent(event);
     });
 
     const audioUpload = document.getElementById("audioUpload");
@@ -208,25 +231,159 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Agregar la funcionalidad de eliminar participantes al pasar el ratón
-    const participants = document.querySelectorAll(".participant");
-    participants.forEach((participant) => {
-      const removeBtn = participant.querySelector(".remove-participant");
-      participant.addEventListener("mouseenter", () => {
-        if (!participant.textContent.includes("⭐")) {
-          removeBtn.style.display = "inline"; // Mostrar la "X"
-          participant.classList.add("hover-participant"); // Añadir sombreado
+    renderParticipantsList(event, tempParticipants);
+
+    // Añadir event listener para el botón "Añadir Participantes"
+    document
+      .getElementById("addParticipantsBtn")
+      .addEventListener("click", () => {
+        showParticipantsPopup(event);
+      });
+  }
+
+  function deleteEvent(event) {
+    events = events.filter((e) => e !== event);
+    renderCalendar();
+    hidePopup();
+  }
+
+  const teamMembers = [
+    "Ana",
+    "Luis",
+    "Carlos",
+    "María",
+    "Juan",
+    "Elena",
+    "Pedro",
+    "Sara",
+  ]; // Lista completa del equipo
+
+  function showParticipantsPopup(event) {
+    const participantsPopup = document.createElement("div");
+    participantsPopup.classList.add("participants-popup");
+    participantsPopup.style.cssText = `
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    `;
+
+    // Obtener los miembros del equipo disponibles (que no están ya en el evento)
+    const availableMembers = teamMembers.filter(
+      (member) => !event.participants.includes(member) && member !== event.host
+    );
+
+    participantsPopup.innerHTML = `
+      <h3>Añadir Participantes</h3>
+      <div style="margin: 10px 0;">
+        <button id="selectAllBtn" style="margin-bottom: 10px;">Seleccionar Todos</button>
+      </div>
+      <div class="members-list" style="max-height: 200px; overflow-y: auto;">
+        ${availableMembers
+          .map(
+            (member) => `
+          <div class="member-item" style="margin: 5px 0;">
+            <input type="checkbox" id="${member}" value="${member}">
+            <label for="${member}">${member}</label>
+          </div>
+        `
+          )
+          .join("")}
+      </div>
+      <div style="margin-top: 15px;">
+        <button id="addSelectedBtn">Añadir Seleccionados</button>
+        <button id="cancelBtn">Cancelar</button>
+      </div>
+    `;
+
+    document.body.appendChild(participantsPopup);
+
+    // Añadir event listeners
+    const selectAllBtn = participantsPopup.querySelector("#selectAllBtn");
+    const addSelectedBtn = participantsPopup.querySelector("#addSelectedBtn");
+    const cancelBtn = participantsPopup.querySelector("#cancelBtn");
+    const checkboxes = participantsPopup.querySelectorAll(
+      "input[type='checkbox']"
+    );
+
+    selectAllBtn.addEventListener("click", () => {
+      checkboxes.forEach((checkbox) => (checkbox.checked = true));
+    });
+
+    addSelectedBtn.addEventListener("click", () => {
+      const selectedMembers = Array.from(checkboxes)
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.value);
+
+      // Actualizar la lista temporal de participantes
+      tempParticipants = [...tempParticipants, ...selectedMembers];
+      renderParticipantsList(event, tempParticipants);
+      participantsPopup.remove();
+    });
+
+    cancelBtn.addEventListener("click", () => {
+      participantsPopup.remove();
+    });
+  }
+
+  function renderParticipantsList(event, participants) {
+    const participantsList = document.getElementById("participantsList");
+    const sortedParticipants = [
+      event.host,
+      ...participants.filter((participant) => participant !== event.host),
+    ];
+
+    participantsList.innerHTML = sortedParticipants
+      .map(
+        (participant) => `
+        <li data-participant="${participant}" class="participant" style="position: relative;">
+          ${participant} ${
+          participant === event.host
+            ? '<img id="HostStar" src="star.png" alt="Host" style="width: 16px; height: 16px;">'
+            : ""
         }
-      });
-      participant.addEventListener("mouseleave", () => {
-        removeBtn.style.display = "none"; // Ocultar la "X"
-        participant.classList.remove("hover-participant"); // Quitar sombreado
-      });
-      removeBtn.addEventListener("click", () => {
-        // Eliminar el participante de la lista
-        const participantName = participant.getAttribute("data-participant");
-        removeParticipantFromEvent(event, participantName);
-        participant.remove(); // Eliminar el elemento de la lista en el popup
-      });
+          ${
+            participant !== event.host
+              ? `
+          <span class="remove-participant" style="display:none; cursor: pointer; position: absolute; right: 0;">
+            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M19.207 6.207a1 1 0 0 0-1.414-1.414L12 10.586 6.207 4.793a1 1 0 0 0-1.414 1.414L10.586 12l-5.793 5.793a1 1 0 1 0 1.414 1.414L12 13.414l5.793 5.793a1 1 0 0 0 1.414-1.414L13.414 12l5.793-5.793z" fill="#303030"/>
+            </svg>
+          </span>`
+              : ""
+          }
+        </li>
+      `
+      )
+      .join("");
+
+    // Re-add event listeners for remove buttons
+    const participantsElements =
+      participantsList.querySelectorAll(".participant");
+    participantsElements.forEach((participant) => {
+      const removeBtn = participant.querySelector(".remove-participant");
+      if (removeBtn) {
+        participant.addEventListener("mouseenter", () => {
+          removeBtn.style.display = "inline";
+          participant.classList.add("hover-participant");
+        });
+        participant.addEventListener("mouseleave", () => {
+          removeBtn.style.display = "none";
+          participant.classList.remove("hover-participant");
+        });
+        removeBtn.addEventListener("click", () => {
+          const participantName = participant.getAttribute("data-participant");
+          tempParticipants = tempParticipants.filter(
+            (p) => p !== participantName
+          );
+          renderParticipantsList(event, tempParticipants);
+        });
+      }
     });
   }
 
@@ -349,6 +506,7 @@ document.addEventListener("DOMContentLoaded", () => {
     event.date = correctedDate; // Asignar la fecha corregida
     event.startTime = startTime;
     event.endTime = endTime;
+    event.participants = tempParticipants; // Aplicar la lista temporal de participantes
 
     renderCalendar(); // Volver a renderizar el calendario con los cambios
     hidePopup(); // Ocultar el popup

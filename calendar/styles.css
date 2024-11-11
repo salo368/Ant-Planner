@@ -330,8 +330,8 @@ body {
 }
 
 /* Estilos generales para los inputs */
-input[type="text"], 
-input[type="date"], 
+input[type="text"],
+input[type="date"],
 input[type="time"] {
   width: 100%;
   height: 30px;
@@ -347,17 +347,18 @@ input[type="time"] {
 }
 
 /* Estilo al hacer focus (cuando el input está seleccionado) */
-input[type="text"]:focus, 
-input[type="date"]:focus, 
+input[type="text"]:focus,
+input[type="date"]:focus,
 input[type="time"]:focus {
-  border-color: #007BFF; /* Cambiar el borde al azul */
+  border-color: #007bff; /* Cambiar el borde al azul */
   background-color: #fff; /* Fondo blanco al hacer focus */
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra sutil */
 }
 
 /* Estilos para los inputs de fecha y hora */
-input[type="date"], input[type="time"] {
-  font-family: 'Arial', sans-serif;
+input[type="date"],
+input[type="time"] {
+  font-family: "Arial", sans-serif;
 }
 
 /* Estilo para el título del evento */
@@ -375,7 +376,23 @@ input[type="date"], input[type="time"] {
 
 /* Botón de guardar cambios */
 #saveChanges {
-  background-color: #007BFF;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#saveChanges:hover {
+  background-color: #d9d9d9;
+}
+
+/* Botón de guardar cambios */
+#deleteEvent {
+  background-color: #ff0000;
   color: white;
   padding: 12px 20px;
   font-size: 16px;
@@ -386,8 +403,8 @@ input[type="date"], input[type="time"] {
 }
 
 /* Estilo para el botón de guardar al hacer hover */
-#saveChanges:hover {
-  background-color: #0056b3;
+#deleteEvent:hover {
+  background-color: #af0000;
 }
 
 /* Mensaje de error de archivo */
@@ -406,8 +423,14 @@ input[type="date"], input[type="time"] {
 .participant {
   margin: 5px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+
+}
+
+#HostStar{
+  margin: 0 0 2px 5px; 
+  
 }
 
 .remove-participant {
@@ -415,3 +438,36 @@ input[type="date"], input[type="time"] {
   cursor: pointer;
 }
 
+.participants-popup {
+  background: rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border: 1px solid #45a049;
+}
+
+.member-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+}
+
+#addSelectedBtn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #007bff;
+  color: white;
+  margin: 0 5px;
+}
+
+#addSelectedBtn:hover {
+  background: #0056b3;
+}
+
+button:hover {
+  background: #d9d9d9;
+}
