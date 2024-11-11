@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <script src="toggleButton.js"></script>
+<script src="buildKanban.js"></script>
 <script src="kanbanColum.js"></script>
 
 <head>
@@ -51,17 +52,22 @@
                 <h1 id="main-little-title">Dashboard / Kanban</h1>
                 <div class="switch-container">
                     <h1 id="main-title">Kanban</h1>
-
-                    <div class="button-container">
-                        <button id="personalBtn" class="toggle-button active left" onclick="toggleButton('personal')">
-                            <img src="userKanban.svg" alt="Personal">
-                        </button>
-                        <button id="grupalBtn" class="toggle-button right" onclick="toggleButton('grupal')">
-                            <img src="groupKanban.svg" alt="Personal">
-                        </button>
+                    <div class="button-options">
+                        <button id="buttonUpdateChange" class="kanban-updated" style="visibility: hidden;" onclick="" >   <img src="check.svg" alt="Dashboard" style="height: 20px;" /></button>
+                        <div class="button-container">
+                            <button id="personalBtn" class="toggle-button active left"
+                                onclick="toggleButton('personal')">
+                                <img src="userKanban.svg" alt="Personal">
+                            </button>
+                            <button id="grupalBtn" class="toggle-button right" onclick="toggleButton('grupal')">
+                                <img src="groupKanban.svg" alt="Personal">
+                            </button>
+                        </div>
+                        
                     </div>
                 </div>
                 <hr>
+                
             </header>
             <main>
                 <div class="widget-kanban">
@@ -69,64 +75,7 @@
                         ondrop="soltar(event)">
                         <h2 class="kanban-title">Por Hacer</h2>
                         <div class="kanban-body">
-                            <div style="background-color: blue;">
-                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
-                                    ondragend="terminarArrastre(event)">
-                                    <div class="kanban-item-title">Crear un nuevo proyecto</div>
-                                    <div class="kanban-item-body">
-                                        <div class="bolita"></div>
-                                        <div>back-end</div>
-                                    </div>
-                                </div>
-
-                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
-                                    ondragend="terminarArrastre(event)">
-                                    <div class="kanban-item-title">borrar un nuevo proyecto</div>
-                                    <div class="kanban-item-body">
-                                        <div class="bolita"></div> back-end
-                                    </div>
-                                </div>
-
-                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
-                                    ondragend="terminarArrastre(event)">
-                                    <div class="kanban-item-title">soplar un nuevo proyecto</div>
-                                    <div class="kanban-item-body">
-                                        <div class="bolita"></div> back-end
-                                    </div>
-                                </div>
-
-                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
-                                    ondragend="terminarArrastre(event)">
-                                    <div class="kanban-item-title">borrar un nuevo proyecto</div>
-                                    <div class="kanban-item-body">
-                                        <div class="bolita"></div> back-end
-                                    </div>
-                                </div>
-
-                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
-                                    ondragend="terminarArrastre(event)">
-                                    <div class="kanban-item-title">borrar un nuevo proyecto</div>
-                                    <div class="kanban-item-body">
-                                        <div class="bolita"></div> back-end
-                                    </div>
-                                </div>
-
-                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
-                                    ondragend="terminarArrastre(event)">
-                                    <div class="kanban-item-title">borrar un nuevo proyecto</div>
-                                    <div class="kanban-item-body">
-                                        <div class="bolita"></div> back-end
-                                    </div>
-                                </div>
-
-                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
-                                    ondragend="terminarArrastre(event)">
-                                    <div class="kanban-item-title">borrar un nuevo proyecto</div>
-                                    <div class="kanban-item-body">
-                                        <div class="bolita"></div> back-end
-                                    </div>
-                                </div>
-
+                            <div >
                             </div>
                         </div>
                     </div>
@@ -137,13 +86,7 @@
                         <div class="kanban-body">
 
                             <div>
-                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
-                                    ondragend="terminarArrastre(event)">
-                                    <div class="kanban-item-title">armar un nuevo proyecto</div>
-                                    <div class="kanban-item-body">
-                                        <div class="bolita"></div> back-end
-                                    </div>
-                                </div>
+
                             </div>
 
                         </div>
@@ -155,17 +98,7 @@
                         <div class="kanban-body">
 
                             <div>
-                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
-                                    ondragend="terminarArrastre(event)">
-                                    <div class="kanban-item-title">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit.
-                                        Necessitatibus maxime quas sunt cupiditate quo doloribus ab aliquam. Sapiente,
-                                        dignissimos reiciendis modi obcaecati blanditiis deleniti voluptates quod dolor,
-                                        error similique at.</div>
-                                    <div class="kanban-item-body">
-                                        <div class="bolita"></div> back-end
-                                    </div>
-                                </div>
+
                             </div>
 
                         </div>
@@ -177,14 +110,7 @@
                         <div class="kanban-body">
 
                             <div>
-                                <div class="kanban-item" draggable="true" ondragstart="empezarArrastre(event)"
-                                    ondragend="terminarArrastre(event)">
-                                    <div class="kanban-item-title">odiar un nuevo proyecto</div>
-                                    <div class="kanban-item-body">
-                                        <div class="bolita"></div> back-end
-                                    </div>
 
-                                </div>
                             </div>
 
                         </div>
@@ -197,9 +123,10 @@
                             <div></div>
                         </div>
                     </div>
+
                 </div>
             </main>
-            </main>
+
         </div>
     </div>
 </body>
