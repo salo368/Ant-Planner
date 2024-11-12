@@ -1,13 +1,57 @@
 const tareas = [
-  { id: "task-id-1", title: "Tarea 1", category: "Desarrollo", status: "0" },
-  { id: "task-id-2", title: "Tarea 2", category: "Revisión", status: "1" },
-  { id: "task-id-3", title: "Tarea 3", category: "Desarrollo", status: "2" },
-  { id: "task-id-4", title: "Tarea 4", category: "Test", status: "3" },
-  { id: "task-id-5", title: "Tarea 5", category: "Desarrollo", status: "4" },
-  { id: "task-id-6", title: "pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp", category: "Desarrollo", status: "3" },
-  { id: "task-id-7", title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum", category: "Desarrollo", status: "3" },
+  {
+    id: "task-id-1",
+    asign: ["123", "234"],
+    title: "Tarea 1",
+    category: "IMPROVE",
+    status: "0",
+  },
+  {
+    id: "task-id-2",
+    asign: ["123"],
+    title: "Tarea 2",
+    category: "NEW",
+    status: "1",
+  },
+  {
+    id: "task-id-3",
+    asign: ["234"],
+    title: "Tarea 3",
+    category: "BUG",
+    status: "2",
+  },
+  {
+    id: "task-id-4",
+    asign: ["123"],
+    title: "Tarea 4",
+    category: "UPDATED",
+    status: "3",
+  },
+  {
+    id: "task-id-5",
+    asign: ["234"],
+    title: "Tarea 5",
+    category: "TEST",
+    status: "4",
+  },
+  {
+    id: "task-id-6",
+    asign: ["123", "234"],
+    title:
+      "pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp",
+    category: "DOC",
+    status: "3",
+  },
+  {
+    id: "task-id-7",
+    asign: ["123"],
+    title:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum",
+    category: "NEW",
+    status: "3",
+  },
 ];
-const tareasCopy =  JSON.parse(JSON.stringify(tareas));
+const tareasCopy = JSON.parse(JSON.stringify(tareas));
 
 function obtenerEquivalenteStatus(status) {
   switch (status) {
@@ -43,13 +87,32 @@ function obtenerEquivalenteStatusReverse(status) {
   }
 }
 
+function obtenerEquivalenteCartegoria(categoria) {
+  switch (categoria) {
+    case "NEW":
+      return "#00ff26";
+    case "BUG":
+      return "#2f00ff";
+    case "UPDATED":
+      return "#ff00e6";
+    case "TEST":
+      return "#ff0000";
+    case "IMPROVE":
+      return "#ffae00";
+    case "DOC":
+      return "#65b7ff";
+    default:
+      return "#fff";
+  }
+}
+
 function actualizarEstadoPorTitulo(_id, newStatus) {
   const tarea = tareasCopy.find((tarea) => tarea.id === _id);
   if (tarea) {
     tarea.status = newStatus;
     //console.log(` "${_id}" updated: ${newStatus}`);
   } else {
-   // console.log(`Don't find: "${_id}"`);
+    // console.log(`Don't find: "${_id}"`);
   }
 }
 
@@ -85,29 +148,48 @@ function sonObjetosIguales(obj1, obj2) {
 }
 
 function construirTareas() {
+
+  const columnas = document.querySelectorAll(".kanban-body div");
+  columnas.forEach(columna => {
+    columna.innerHTML = ''; 
+  });
   tareasCopy.forEach((tarea) => {
-    const tareaElemento = document.createElement("div");
-    tareaElemento.classList.add("kanban-item");
-    tareaElemento.id = tarea.id;
-    tareaElemento.draggable = true;
-    tareaElemento.style.opacity = 1;
-    tareaElemento.ondragstart = (event) => empezarArrastre(event);
-    tareaElemento.ondragend = (event) => terminarArrastre(event);
+    if ((personal === 'personal' && tarea.asign.includes('123')) || (personal === 'grupal')) {
+      const tareaElemento = document.createElement("div");
+      tareaElemento.classList.add("kanban-item");
+      tareaElemento.id = tarea.id;
+      tareaElemento.draggable = true;
+      tareaElemento.style.opacity = 1;
+      tareaElemento.ondragstart = (event) => empezarArrastre(event);
+      tareaElemento.ondragend = (event) => terminarArrastre(event);
 
-    const titleElemento = document.createElement("div");
-    titleElemento.textContent = tarea.title;
-    titleElemento.classList.add("kanban-item-title");
-    tareaElemento.appendChild(titleElemento);
+      const titleElemento = document.createElement("div");
+      titleElemento.textContent = tarea.title;
+      titleElemento.classList.add("kanban-item-title");
+      tareaElemento.appendChild(titleElemento);
 
-    const categoryElement = document.createElement("div");
-    categoryElement.textContent = `Categoría: ${tarea.category}`;
-    categoryElement.classList.add("kanban-item-body");
-    tareaElemento.appendChild(categoryElement);
-    const equStatus = obtenerEquivalenteStatus(tarea.status);
-    const columna = document.getElementById(equStatus);
-    const columnaBody = columna.querySelector(".kanban-body div");
+      const categoryElement = document.createElement("div");
+      categoryElement.textContent = ` ${tarea.category}`;
+      categoryElement.classList.add("kanban-item-body");
 
-    columnaBody.appendChild(tareaElemento);
+      const bolitaElement = document.createElement("div");
+      bolitaElement.textContent = ``;
+      bolitaElement.classList.add("bolita");
+      bolitaElement.style.backgroundColor = obtenerEquivalenteCartegoria(
+        tarea.category
+      );
+
+      const primerHijo = categoryElement.firstChild;
+      categoryElement.insertBefore(bolitaElement, primerHijo);
+
+      tareaElemento.appendChild(categoryElement);
+
+      const equStatus = obtenerEquivalenteStatus(tarea.status);
+      const columna = document.getElementById(equStatus);
+      const columnaBody = columna.querySelector(".kanban-body div");
+
+      columnaBody.appendChild(tareaElemento);
+    }
   });
 }
 

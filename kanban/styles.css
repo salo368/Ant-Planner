@@ -309,8 +309,7 @@ body {
 .bolita {
   width: 10px;
   height: 10px;
-  background-color: red;
-  border: #420303 1px solid;
+  background-color: #65b7ff;
   border-radius: 50%;
 }
 .switch-container {

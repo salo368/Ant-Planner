@@ -121,7 +121,7 @@
     border: 1px solid rgb(210, 210, 210); 
     box-shadow: 0 0 1px rgb(210, 210, 210);
     width: 100%;
-    height: 150px;
+    height: 100%;
     cursor: pointer;
     resize: none; 
     padding: 0.8vh 1vh;
