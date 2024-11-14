@@ -1,9 +1,11 @@
+
 *{
     box-sizing: border-box;
 }
 
 body{
     background-color: #f4f4f6;
+
     display: flex;
     flex-direction: row;
     height: 100vh;
@@ -12,11 +14,13 @@ body{
 
 .nav-cont {
     height: 100%;
+
     width: 220px;
     padding: 13px;
 }
 
 .nav-cont nav{
+
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -50,6 +54,7 @@ body{
 
 .nav-cont nav ul{
     padding: 4px 0;
+
     margin: 0;
     list-style-type: none;
 }
