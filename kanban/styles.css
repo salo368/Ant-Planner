@@ -1,0 +1,385 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #f4f4f6;
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  margin: 0;
+}
+
+.nav-cont {
+  height: 100%;
+  width: 220px;
+  padding: 13px;
+}
+
+.nav-cont nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.nav-logo {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.nav-logo a {
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-h6 {
+  padding: 0;
+  text-decoration: none;
+  color: #86858d;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin: 0;
+  user-select: none;
+}
+
+.nav-cont nav ul {
+  padding: 4px 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.nav-cont nav li {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  height: 40px;
+  align-items: center;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-cont nav li:hover {
+  background-color: #e4e3e8;
+}
+
+.nav-cont nav li.nav-selected {
+  background-color: #ffffff;
+  border: 1px solid rgb(219, 219, 219);
+  box-shadow: 0 0 1.5px rgb(219, 219, 219);
+}
+
+.nav-cont nav li.nav-selected:hover {
+  border: 1px solid rgb(219, 219, 219);
+  box-shadow: 0 0 1.5px rgb(219, 219, 219);
+}
+
+.nav-cont nav li i {
+  height: 100%;
+  width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-cont nav li i img {
+  height: 24px;
+  width: 24px;
+}
+
+.nav-cont nav li a {
+  padding: 0;
+  padding-right: 12px;
+  text-decoration: none;
+  flex: 1;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.main-cont {
+  height: 100%;
+  flex: 1;
+  padding: 13px 13px 13px 0;
+}
+
+.main-sub-cont {
+  height: 100%;
+  width: 100%;
+  border: 1px solid rgb(219, 219, 219);
+  box-shadow: 0 0 1.5px rgb(219, 219, 219);
+  background-color: white;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-cont header {
+  height: justy-content;
+  background-color: white;
+  padding: 2.5vh 2.7vh 0 2.7vh;
+}
+
+.main-cont header hr {
+  border: 1px solid #d1d1d1;
+}
+
+#main-little-title {
+  /* background-color: aqua; */
+  margin: 0;
+  color: rgb(92, 92, 92);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+#main-title {
+  /* background-color: aqua; */
+  margin: 0;
+  margin-top: 16px;
+  color: rgb(45, 45, 45);
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.main-cont main {
+  padding: 0.82vh 2.5vh 2.7vh 2.5vh;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+}
+
+.widget-kanban {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding-top: 0.8vh;
+  overflow-y: hidden;
+}
+
+.kanban-list {
+  flex: 1;
+  height: 100%;
+  border-radius: 0.8vw;
+  margin-right: 0.5vw;
+  display: flex;
+  flex-direction: column;
+  padding: 0.7vh 0.2vh 0.7vh 1vh;
+ 
+}
+
+#kanban-todo {
+  background-color: rgba(255, 240, 202, 0.4);
+  border: 2px solid #fff0ca;
+  margin-right: 0.5vw;
+}
+
+#kanban-pause {
+  background-color: rgba(254, 208, 208, 0.4);
+  border: 2px solid #fed0d0;
+  margin-right: 0.5vw;
+}
+
+#kanban-process {
+  background-color: rgba(197, 213, 245, 0.4);
+  border: 2px solid #c5d5f5;
+  margin-right: 0.5vw;
+}
+
+#kanban-verify {
+  background-color: rgba(218, 199, 255, 0.4);
+  border: 2px solid #dac7ff;
+  margin-right: 0.5vw;
+}
+
+#kanban-done {
+  background-color: rgba(179, 243, 193, 0.4);
+  border: 2px solid #b3f3c1;
+}
+
+.kanban-title {
+  margin: 0;
+  color: rgb(67, 67, 67);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 2.1vh, 100px);
+  padding-bottom: 1vh;
+}
+
+.kanban-body {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding-right: 8px;
+  align-content: center;
+}
+
+.kanban-body::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+}
+
+.kanban-body::-webkit-scrollbar-track {
+  border-radius: 10px;
+  
+}
+
+.kanban-body::-webkit-scrollbar-thumb {
+  background: #cacaca;
+  border-radius: 10px; 
+}
+
+.kanban-body::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+.kanban-body > div{
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2px;
+}
+
+.kanban-item {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 2px rgb(194, 194, 194);
+  border-radius: 11px;
+  padding: 0.5vh 0.5vw 0.9rem 0.5vw;
+  margin-top: 1.4vh; 
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  height: fit-content;
+  max-width: 15rem;
+  max-height: 20vh;
+  min-height: 20px;
+}
+
+.kanban-item:first-child {
+  margin-top: 1px;
+}
+
+.kanban-item-title {
+  color: rgb(11, 0, 81);
+  font-weight: 400;
+  padding-top: 5px;
+  padding-left: 5px;
+  font-size: clamp(8px, 0.95rem, 100px);
+  align-self: flex-start;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word; 
+}
+
+.kanban-item-body {
+  color: rgb(85, 85, 85);
+  font-weight: 400;
+  font-size: clamp(8px,  0.8rem, 100px);
+  padding: 5px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  width: 100%;
+}
+.bolita {
+  width: 10px;
+  height: 10px;
+  background-color: #65b7ff;
+  border-radius: 50%;
+}
+.switch-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-container {
+  display: flex;
+  border: 2px solid #e7e7e7;
+  background-color: #e7e7e7;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.toggle-button {
+  background-color: #e7e7e7;
+  color: #a2bbd6;
+  padding: 10px 20px;
+  margin: 0;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border: 0;
+  width: 30px;
+  height: 40px;
+  border: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-button.active {
+  background-color: #ffffff;
+}
+
+.toggle-button.left {
+  border-radius: 0 10px 10px 0;
+}
+
+.toggle-button.right {
+  border-radius: 10px 0 0 10px;
+}
+
+.toggle-button img {
+  width: 20px;
+  height: 20px;
+}
+
+.kanban-updated{
+  background-color: #ffffff; 
+  color: rgb(0, 0, 0); 
+  width: 42px;
+  height: 42px;
+  font-size: 16px;
+  border-radius: 10px; 
+  cursor: pointer; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #e7e7e7;
+}
+
+.button-options{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+
+}

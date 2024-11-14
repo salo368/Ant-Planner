@@ -1,9 +1,11 @@
-* {
+
+*{
     box-sizing: border-box;
 }
 
-body {
-    background-color: #f9f9f9;
+body{
+    background-color: #f4f4f6;
+
     display: flex;
     flex-direction: row;
     height: 100vh;
@@ -12,30 +14,47 @@ body {
 
 .nav-cont {
     height: 100%;
-    width: 280px;
-    padding: 8px;
+
+    width: 220px;
+    padding: 13px;
 }
 
 .nav-cont nav{
-    /* background-color: rgb(199, 56, 56); */
+
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
 }
 
-.nav-logo {
-    background-color: white;
-    border-radius: 18px;
-    border: 1px solid rgb(219, 219, 219); 
-    box-shadow: 0 0 1.5px rgb(219, 219, 219);
-    height: 64px;
+.nav-logo{
+    box-sizing: border-box;
     width: 100%;
-    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.nav-logo a{
+    text-decoration: none; 
+    cursor: pointer;
+    display: flex;            
+    justify-content: center;  
+    align-items: center;    
+}
+
+.menu-h6{
+    padding: 0;
+    text-decoration: none; 
+    color: #86858d; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: .9rem;
+    margin: 0;
+    user-select: none;
 }
 
 .nav-cont nav ul{
-    padding: 10px 0;
+    padding: 4px 0;
+
     margin: 0;
     list-style-type: none;
 }
@@ -44,68 +63,405 @@ body {
     display: flex;
     flex-direction: row;
     padding: 0;
-    height: 46px;
+    height: 40px;
     align-items: center;
+    border-radius: 12px;
+    cursor: pointer;
+    user-select: none;
 }
 
-.nav-cont nav li:hover {
-    background-color: rgb(227, 227, 227); 
-    cursor: pointer;
-    border-radius: 14px;
+.nav-cont nav li:hover{
+    background-color: #e4e3e8; 
 }
+
+.nav-cont nav li.nav-selected{
+    background-color: #ffffff; 
+    border: 1px solid rgb(219, 219, 219); 
+    box-shadow: 0 0 1.5px rgb(219, 219, 219);
+}
+
+.nav-cont nav li.nav-selected:hover{
+    border: 1px solid rgb(219, 219, 219); 
+    box-shadow: 0 0 1.5px rgb(219, 219, 219);
+}
+
 
 .nav-cont nav li i{
     height: 100%;
-    width: 26px;
+    width: 44px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10px;
 }
 
 .nav-cont nav li i img{
-    height: 26px; 
-    width: 26px;
-    color: rgb(75, 75, 75); 
-    
+    height: 24px; 
+    width: 24px;
 }
 
 .nav-cont nav li a{
-    padding: 0 8px;
+    padding: 0;
+    padding-right: 12px;
     text-decoration: none; 
-    color: #6b6c6c; 
     flex: 1;
+    color: black; 
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 17px;
+    font-size: .9rem;
+    display: inline-flex;
+    align-items: center;
 }
 
-.main-cont {
+.main-cont{
     height: 100%;
     flex: 1;
-    padding: 8px 8px 8px 2px;
-    display: flex;
-    flex-direction: column;
+    padding: 13px 13px 13px 0;
 }
 
-.main-sub-cont {
+.main-sub-cont{
     height: 100%;
     width: 100%;
     border: 1px solid rgb(219, 219, 219); 
     box-shadow: 0 0 1.5px rgb(219, 219, 219);
     background-color: white;
     border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-
-.main-cont header {
-    height: 50px;
-    
+.main-cont header{
+    height: 120px;
+    background-color: white;
+    padding: 2.5vh 2.7vh 0 2.7vh;
 }
 
-.main-cont main {
-    margin-top: 15px;
-    height: 50px;
+.main-cont header hr{
+    border: 1px solid #d1d1d1;
+}
+
+#main-little-title{
+    /* background-color: aqua; */
+    margin: 0;
+    color: rgb(92, 92, 92); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+#main-title{
+    /* background-color: aqua; */
+    margin: 0;
+    margin-top: 16px;
+    color: rgb(45, 45, 45); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.main-cont main{
+    padding: 0.82vh 2.5vh  2.7vh 2.5vh;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-cont main .main-col1{
+    /* background-color: #cc1111; */
+    height: 100%;
+    flex: 8;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-cont main .main-col2{
+    /* background-color: #11ccb3; */
+    height: 100%;
+    /* width: 460px; */
+    width: 25.3vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-cont main .main-meetings{
+    flex: 1;
+    width: calc(100% - 10px);
+    margin: 0 10px 10px 0;
+}
+
+.main-cont main .main-kanban{
+    flex: 2;
+    width: calc(100% - 10px);
+    margin: 10px 10px 0 0;
+}
+
+.main-cont main .main-calendar{
+    height: 18vw;
+    width: calc(100% - 10px);
+    margin: 0 0 10px 10px;
+}
+
+.main-cont main .main-tasks{
+    flex: 1;
+    width: calc(100% - 10px);
+    margin: 10px 0 0 10px;
+}
+
+.main-cont main .widget{
+    border: 1px solid rgb(210, 210, 210); 
+    box-shadow: 0 0 2px rgb(210, 210, 210);
+    background-color: white;
+    border-radius: 2vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.widget-header{
+    width: 100%;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    padding: 1.5vh 1.5vh 0 1.5vh;
+    /* background-color: brown; */
+}
+
+.widget-header h2{
+    height: 100%;
+    width: 100%;
+    color: rgb(51, 51, 51); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.9vh;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+}
+
+.widget-body{
+    width: 100%;
+    align-items: center;
+    padding: 0 1.5vh 1.5vh 1.5vh;
+    flex: 1;
+    overflow: hidden;
+}
+
+.widget-calendar{
+    /* background-color: brown; */
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-calendar-info{
+    display: flex;
+    flex-direction: row;
+    /* background-color: aquamarine; */
+    width: 100%;
+    height: 30px;
+}
+
+.widget-calendar-info h3{
+    flex: 1;
+    /* background-color: brown; */
+    margin: 0;
+    color: rgb(51, 51, 51); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.9vh;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 4px;
+}
+
+.widget-calendar-info-controls{
+    flex: 1;
+    /* background-color: rgb(91, 42, 165); */
+    margin: 0;
+    text-align: right;
+    margin-right: 4px;
+}
+
+.widget-calendar-button{
+    height: 24px;
+    width: 24px;
+    border-radius: 24px;
+    border: 1px solid rgb(210, 210, 210); 
+    box-shadow: 0 0 1px rgb(210, 210, 210);
+    background-color: #ffffff;
+    padding: 0;
+    cursor: pointer;
+}
+
+.widget-calendar-button:hover{
+    background-color: #e4e3e8; 
+}
+
+#widget-calendar-button-left{
+    margin-right: 4px;
+}
+
+#widget-calendar-button-left img{
+    height: 22px;
+    width: 22px;
+}
+
+#widget-calendar-button-right img{
+    height: 22px;
+    width: 22px;
+}
+
+.widget-calendar table{
+    /* background-color: rgb(42, 165, 87); */
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-calendar table thead tr{
+    display: flex;
+    flex-direction: row;
     flex: 1;
 }
+
+.widget-calendar table tbody{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.widget-calendar table tbody tr{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 2px;
+}
+
+.widget-calendar-day{
+    flex: 1;
+    border: 1px solid rgb(210, 210, 210); 
+    box-shadow: 0 0 1px rgb(210, 210, 210);
+    /* background-color: white; */
+    margin: 0 2px;
+    border-radius: 0.4vw;
+    color: rgb(67, 67, 67); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 2vh;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.widget-calendar-title{
+    color: rgb(51, 51, 51); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.8vh;
+    margin: 0;
+    /* background-color: aqua; */
+    flex: 1;
+}
+
+/* --------------------------------------------------- MEETING */
+
+.widget-meeting-cont {
+    padding-top: 1vh;
+}
+
+.widget-meeting {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 0 0.5vh;
+}
+
+.widget-meeting::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px;
+    background: #e0e0e0;
+}
+
+.widget-meetinge::-webkit-scrollbar-track {
+    background: #e8e8e8;
+    border-radius: 10px;
+}
+
+.widget-meeting::-webkit-scrollbar-thumb {
+    background: #bbbbbb;
+    border-radius: 10px;
+}
+
+.widget-meeting::-webkit-scrollbar-thumb:hover {
+    background: #cacaca;
+}
+
+.widget-meeting-meeting {
+    width: 100%;
+    height: 3.8vh;
+    border: 1px solid rgb(210, 210, 210); 
+    box-shadow: 0 0 1px rgb(210, 210, 210);
+    border-radius: 0.6vw;
+    margin-bottom: 0.6vh;
+}
+
+/* --------------------------------------------------- KANBAN */
+
+.widget-kanban{
+    display: flex;
+    flex-direction: row;
+    padding-top: 0.8vh;
+}
+
+.kanban-list{
+    flex: 1;
+    height: 100%;
+    border-radius: 0.8vw;
+    display: flex;
+    flex-direction: column;
+    padding: 0.8vh 1.1vh 0.8vh 1.1vh;
+}
+
+#kanban-todo{
+    background-color: rgba(255, 240, 202, 0.4);
+    border: 2px solid #fff0ca; 
+    margin-right: 0.5vw;
+}
+
+#kanban-pause{
+    background-color: rgba(254, 208, 208, 0.4);
+    border: 2px solid #fed0d0; 
+    margin-right: 0.5vw;
+}
+
+#kanban-process{
+    background-color: rgba(197, 213, 245, 0.4);
+    border: 2px solid #c5d5f5; 
+    margin-right: 0.5vw;
+}
+
+#kanban-verify{
+    background-color: rgba(218, 199, 255, 0.4);
+    border: 2px solid #dac7ff; 
+    margin-right: 0.5vw;
+}
+
+#kanban-done{
+    background-color: rgba(179, 243, 193, 0.4);
+    border: 2px solid #b3f3c1; 
+}
+
+.kanban-title{
+    margin: 0;
+    color: rgb(67, 67, 67); 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1.9vh;
+}
+
+.kanban-body{
+    flex: 1;
+    width: 100%;
+}
+
 
