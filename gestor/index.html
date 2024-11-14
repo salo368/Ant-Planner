@@ -23,19 +23,19 @@
             <ul>
                 <li>
                     <i><img src="panel.svg" alt="Dashboard" /></i>
-                    <a>Dashboard</a>
+                    <a  href="../main/index.html">Dashboard</a>
                 </li>
                 <li>
                     <i><img src="board.svg" alt="Board" /></i>
-                    <a>Tableros</a>
+                    <a href="../kanban/index.html">Tableros</a>
                 </li>
                 <li class="nav-selected">
                     <i><img src="gestor.svg" alt="Gestor" /></i>
-                    <a>Gestor</a>
+                    <a href="../gestor/index.html">Gestor</a>
                 </li>
                 <li>
                     <i><img src="calendar.svg" alt="Calendar" /></i>
-                    <a>Calendario</a>
+                    <a href="../calendar/index.html">Calendario</a>
                 </li>
                 <li>
                     <i><img src="conf.svg" alt="Conf" /></i>
@@ -427,13 +427,13 @@
                             <div id="main-gestor-info-body-dateInit" class="main-gestor-info-body-date">
                                 <h2>Fecha inicio</h2>
                                 <div class="datePicker">
-                                    <h2>12/10/2024</h2>
+                                    <input type="date" id="date-start" name="dateInit" value="2024-10-12">
                                 </div>
                             </div>
                             <div id="main-gestor-info-body-dateEnd" class="main-gestor-info-body-date">
                                 <h2>Fecha fin</h2>
                                 <div class="datePicker">
-                                    <h2>11/11/2024</h2>
+                                    <input type="date" id="date-start" name="dateInit" value="2024-11-11">
                                 </div>
                             </div>
                         </div>
@@ -444,50 +444,50 @@
                             </button>
                         </div>
                         <div id="add-new-user-form" class="add-new-user-asign">
+                            <div class="form-new-user">
+                                <div id="new-user-form-div">
+                                    <span class="close-button" onclick="newUserAsign()">&times;</span>
+                                </div>
+                                <table class="add-new-user-asign-table">
+                                    <tbody class="new-asign-table-body">
 
-                            <div id="new-user-form-div">
-                                <span class="close-button">&times;</span>
+                                        <tr id="1">
+                                            <td><img src="user.svg" alt="Foto de Perfil" class="profile-img"></td>
+                                            <td>Juan Pérez</td>
+                                            <td>Administrador</td>
+                                            <td> <input type="checkbox" id="checkButton" name="checkButton"></td>
+                                        </tr>
+                                        <tr id="2">
+                                            <td><img src="user.svg" alt="Foto de Perfil" class="profile-img"></td>
+                                            <td>Maria García</td>
+                                            <td>Usuario</td>
+                                            <td><input type="checkbox" id="checkButton" name="checkButton">
+                                            </td>
+                                        </tr>
+                                        <tr id="3">
+                                            <td><img src="user.svg" alt="Foto de Perfil" class="profile-img"></td>
+                                            <td>Maria García</td>
+                                            <td>Usuario</td>
+                                            <td><input type="checkbox" id="checkButton" name="checkButton">
+                                            </td>
+                                        </tr>
+                                        <tr id="4">
+                                            <td><img src="user.svg" alt="Foto de Perfil" class="profile-img"></td>
+                                            <td>Maria García</td>
+                                            <td>Usuario</td>
+                                            <td><input type="checkbox" id="checkButton" name="checkButton"></button>
+                                            </td>
+                                        </tr>
+                                        <tr id="5">
+                                            <td><img src="user.svg" alt="Foto de Perfil" class="profile-img"></td>
+                                            <td>Maria García</td>
+                                            <td>Usuario</td>
+                                            <td><input type="checkbox" id="checkButton" name="checkButton"></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <table class="add-new-user-asign-table">
-                                <tbody class="new-asign-table-body">
-
-                                    <tr id="1">
-                                        <td><img src="user.svg" alt="Foto de Perfil" class="profile-img"></td>
-                                        <td>Juan Pérez</td>
-                                        <td>Administrador</td>
-                                        <td> <input type="checkbox" id="checkButton" name="checkButton"></td>
-                                    </tr>
-                                    <tr id="2">
-                                        <td><img src="user.svg" alt="Foto de Perfil" class="profile-img"></td>
-                                        <td>Maria García</td>
-                                        <td>Usuario</td>
-                                        <td><input type="checkbox" id="checkButton" name="checkButton">
-                                        </td>
-                                    </tr>
-                                    <tr id="3">
-                                        <td><img src="user.svg" alt="Foto de Perfil" class="profile-img"></td>
-                                        <td>Maria García</td>
-                                        <td>Usuario</td>
-                                        <td><input type="checkbox" id="checkButton" name="checkButton">
-                                        </td>
-                                    </tr>
-                                    <tr id="4">
-                                        <td><img src="user.svg" alt="Foto de Perfil" class="profile-img"></td>
-                                        <td>Maria García</td>
-                                        <td>Usuario</td>
-                                        <td><input type="checkbox" id="checkButton" name="checkButton"></button>
-                                        </td>
-                                    </tr>
-                                    <tr id="5">
-                                        <td><img src="user.svg" alt="Foto de Perfil" class="profile-img"></td>
-                                        <td>Maria García</td>
-                                        <td>Usuario</td>
-                                        <td><input type="checkbox" id="checkButton" name="checkButton"></button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
                         </div>
 
                         <div class="main-gestor-info-body-asign">
@@ -531,7 +531,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <button class="save-asign-button" onclick="toggleButton('personal')">
+                        <button class="save-asign-button" onclick="">
                             <img src="save.svg" alt="Personal">
                         </button>
                     </div>

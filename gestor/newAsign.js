@@ -11,7 +11,7 @@ function newUserAsign() {
 }
 
 document.getElementById("add-new-user-form").addEventListener("click", function(event) {
-    const modalContent = document.querySelector(".add-new-user-asign-table");
+    const modalContent = document.querySelector(".form-new-user");
     if (!modalContent.contains(event.target)) {
         newUserAsign();
     }

@@ -25,19 +25,19 @@
             <ul>
                 <li>
                     <i><img src="panel.svg" alt="Dashboard" /></i>
-                    <a>Dashboard</a>
+                    <a  href="../main/index.html">Dashboard</a>
                 </li>
                 <li class="nav-selected">
                     <i><img src="board.svg" alt="Board" /></i>
-                    <a>Tableros</a>
+                    <a href="../kanban/index.html">Tableros</a>
                 </li>
                 <li>
                     <i><img src="gestor.svg" alt="Gestor" /></i>
-                    <a>Gestor</a>
+                    <a href="../gestor/index.html">Gestor</a>
                 </li>
                 <li>
                     <i><img src="calendar.svg" alt="Calendar" /></i>
-                    <a>Calendario</a>
+                    <a href="../calendar/index.html">Calendario</a>
                 </li>
                 <li>
                     <i><img src="conf.svg" alt="Conf" /></i>
@@ -53,7 +53,8 @@
                 <div class="switch-container">
                     <h1 id="main-title">Kanban</h1>
                     <div class="button-options">
-                        <button id="buttonUpdateChange" class="kanban-updated" style="visibility: hidden;" onclick="" >   <img src="check.svg" alt="Dashboard" style="height: 20px;" /></button>
+                        <button id="buttonUpdateChange" class="kanban-updated" style="visibility: hidden;" onclick="">
+                            <img src="check.svg" alt="Dashboard" style="height: 20px;" /></button>
                         <div class="button-container">
                             <button id="personalBtn" class="toggle-button active left"
                                 onclick="toggleButton('personal')">
@@ -63,11 +64,11 @@
                                 <img src="groupKanban.svg" alt="Personal">
                             </button>
                         </div>
-                        
+
                     </div>
                 </div>
                 <hr>
-                
+
             </header>
             <main>
                 <div class="widget-kanban">
@@ -75,7 +76,7 @@
                         ondrop="soltar(event)">
                         <h2 class="kanban-title">Por Hacer</h2>
                         <div class="kanban-body">
-                            <div >
+                            <div>
                             </div>
                         </div>
                     </div>
@@ -91,7 +92,6 @@
 
                         </div>
                     </div>
-
                     <div id="kanban-process" class="kanban-list" ondragover="permitirArrastre(event)"
                         ondrop="soltar(event)">
                         <h2 class="kanban-title">En Proceso</h2>
