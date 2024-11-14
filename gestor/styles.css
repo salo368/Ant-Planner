@@ -567,6 +567,7 @@ body {
   display: flex;
   flex-direction: column;
   padding-left: 2vh;
+  position: relative;
 }
 
 .main-gestor-info-body-task {
@@ -680,6 +681,7 @@ body {
 }
 
 .add-asign-button {
+  
   height: 24px;
   width: 24px;
   display: flex;
@@ -688,7 +690,7 @@ body {
   background-color: #e7e7e700;
   display: flex;
   align-self: flex-end;
-  border: 2px solid #e7e7e700;
+  border: 1px solid rgb(210, 210, 210);
   border-radius: 100%;
 }
 
@@ -696,6 +698,25 @@ body {
   background-color: #e7e7e7;
 }
 
+.save-asign-button {
+  height: 24px;
+  width: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7e7e700;
+  display: flex;
+  align-self: flex-end;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 25%;
+}
+
+.save-asign-button:hover {
+  background-color: #b5d1a9;
+}
+
+
+/*tabla de asignados*/
 .main-gestor-info-body-asign {
   flex: 1;
   overflow-y: auto;
@@ -714,15 +735,27 @@ body {
 .asign-table-body {
   padding: 1px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  
 }
+
+.asign-table-body tr {
+  padding: 8px; 
+  text-align: left;
+  vertical-align: middle;
+  align-items: center;
+}
+
 .profile-img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
   object-fit: cover;
 }
+
 .remove-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 20px;
   width: 20px;
   font-size: 12px;
@@ -731,9 +764,6 @@ body {
   border: none;
   border-radius: 100%;
   cursor: pointer;
-}
-.remove-button:hover {
-  background-color: #fd4949;
 }
 
 .main-gestor-info-body-asign::-webkit-scrollbar {
@@ -753,3 +783,104 @@ body {
 .main-gestor-info-body-asign::-webkit-scrollbar-thumb:hover {
   background: #a0a0a0;
 }
+
+.main-gestor-info-body-group-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.main-gestor-info-body-title-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.remove-button img {
+  width: 15px;
+  height: 15px;
+  display: none;
+  object-fit: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.asign-table-body tr:hover {
+  background-color: #f1f1f1;
+  .remove-button img {
+    display: block;
+  }
+}
+
+.asign-table-body tr img {
+  background-color: #f3f3f3;
+}
+
+/*tabla de nuevas asignaciones*/
+.add-new-user-asign {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffffd2;
+}
+
+.add-new-user-asign-table {
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  position: relative;
+  background-color: white;
+  border: 1px solid rgb(219, 219, 219);
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.add-new-user-asign-table tr {
+  height: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-new-user-asign-table tr:hover {
+  background-color: azure;
+}
+
+.new-asign-table-body tr:hover {
+  .remove-button img {
+    display: block;
+  }
+}
+
+.add-new-user-asign .close-button {
+  display: inline;
+  justify-content: end;
+  align-items: center;
+  top: 10px;
+  right: 10px;
+  height: 20px;
+  width: 20px;
+  font-size: 24px;
+  border-radius: 100%;
+}
+
+.add-new-user-asign .close-button:hover {
+  background-color: #f3f3f3;
+}
+
+#new-user-form-div{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: end;
+  gap: 10px;
+}
+
