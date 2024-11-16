@@ -30,29 +30,28 @@ document.addEventListener("DOMContentLoaded", () => {
       timeColumn.appendChild(timeSlot);
     }
   }
+function renderCalendar() {
+  generateTimeColumn();
+  daysContainer.innerHTML = "";
 
-  function renderCalendar() {
-    generateTimeColumn();
-    daysContainer.innerHTML = "";
+  const startOfWeek = getStartOfWeek(currentDate);
+  const endOfWeek = new Date(startOfWeek);
+  endOfWeek.setDate(endOfWeek.getDate() + 6);
 
-    const startOfWeek = getStartOfWeek(currentDate);
-    const endOfWeek = new Date(startOfWeek);
-    endOfWeek.setDate(endOfWeek.getDate() + 6);
+  const fragment = document.createDocumentFragment();
 
-    const fragment = document.createDocumentFragment();
+  for (let i = 0; i < 7; i++) {
+    const day = new Date(startOfWeek);
+    day.setDate(day.getDate() + i);
 
-    for (let i = 0; i < 7; i++) {
-      const day = new Date(startOfWeek);
-      day.setDate(day.getDate() + i);
-
-      const dayColumn = createDayColumn(day);
-      addEventsToDay(day, dayColumn);
-      fragment.appendChild(dayColumn);
-    }
-
-    daysContainer.appendChild(fragment);
-    updateMonthAndDateRange(startOfWeek, endOfWeek);
+    const dayColumn = createDayColumn(day);
+    addEventsToDay(day, dayColumn);
+    fragment.appendChild(dayColumn);
   }
+
+  daysContainer.appendChild(fragment);
+  updateMonthAndDateRange(startOfWeek, endOfWeek);
+}
 
   function createDayColumn(date) {
     const dayColumn = document.createElement("div");
@@ -387,94 +386,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function removeParticipantFromEvent(event, participantName) {
-    if (event.host !== participantName) {
-      event.participants = event.participants.filter(
-        (participant) => participant !== participantName
-      );
-    }
-  }
-
-  function saveEventChanges(event) {
-    const title = document.getElementById("eventTitle").value;
-    const date = document.getElementById("eventDate").value; // Obtener el valor del input
-    const startTime = document.getElementById("startTime").value;
-    const endTime = document.getElementById("endTime").value;
-
-    // Validar que la hora de inicio no sea mayor que la hora de fin
-    const startMinutes = convertToMinutes(startTime);
-    const endMinutes = convertToMinutes(endTime);
-    if (startMinutes >= endMinutes) {
-      alert("La hora de inicio no puede ser mayor o igual a la hora de fin.");
-      return;
-    }
-
-    // Corregir la fecha
-    const [year, month, day] = date.split("-").map(Number); // Desglosar la fecha
-    const correctedDate = new Date(year, month - 1, day); // Crear una nueva fecha sin que afecte la zona horaria
-
-    // Verificar que el evento no se superponga con otro
-    if (isEventOverlapping(correctedDate, startTime, endTime, event)) {
-      alert(
-        "El evento se superpone con otro evento existente en el mismo día."
-      );
-      return;
-    }
-
-    // Actualizar el evento con los nuevos valores
-    event.title = title;
-    event.date = correctedDate; // Asignar la fecha corregida
-    event.startTime = startTime;
-    event.endTime = endTime;
-
-    renderCalendar(); // Volver a renderizar el calendario con los cambios
-    hidePopup(); // Ocultar el popup
-  }
-
-  function removeParticipantFromEvent(event, participantName) {
-    if (event.host !== participantName) {
-      event.participants = event.participants.filter(
-        (participant) => participant !== participantName
-      );
-    }
-  }
-
-  function saveEventChanges(event) {
-    const title = document.getElementById("eventTitle").value;
-    const date = document.getElementById("eventDate").value; // Obtener el valor del input
-    const startTime = document.getElementById("startTime").value;
-    const endTime = document.getElementById("endTime").value;
-
-    // Validar que la hora de inicio no sea mayor que la hora de fin
-    const startMinutes = convertToMinutes(startTime);
-    const endMinutes = convertToMinutes(endTime);
-    if (startMinutes >= endMinutes) {
-      alert("La hora de inicio no puede ser mayor o igual a la hora de fin.");
-      return;
-    }
-
-    // Corregir la fecha
-    const [year, month, day] = date.split("-").map(Number); // Desglosar la fecha
-    const correctedDate = new Date(year, month - 1, day); // Crear una nueva fecha sin que afecte la zona horaria
-
-    // Verificar que el evento no se superponga con otro
-    if (isEventOverlapping(correctedDate, startTime, endTime, event)) {
-      alert(
-        "El evento se superpone con otro evento existente en el mismo día."
-      );
-      return;
-    }
-
-    // Actualizar el evento con los nuevos valores
-    event.title = title;
-    event.date = correctedDate; // Asignar la fecha corregida
-    event.startTime = startTime;
-    event.endTime = endTime;
-
-    renderCalendar(); // Volver a renderizar el calendario con los cambios
-    hidePopup(); // Ocultar el popup
-  }
-
   function saveEventChanges(event) {
     const title = document.getElementById("eventTitle").value;
     const date = document.getElementById("eventDate").value; // Obtener el valor del input
@@ -590,8 +501,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function addEvent(date, startTime, endTime, title, participants, host) {
+    const eventDate = new Date(date);
+    eventDate.setDate(eventDate.getDate() + 1); // Sumar un día a la fecha
+    eventDate.setHours(0, 0, 0, 0); // Establecer la hora a medianoche en la zona horaria local
+  
     events.push({
-      date: new Date(date),
+      date: eventDate,
       startTime,
       endTime,
       title,
